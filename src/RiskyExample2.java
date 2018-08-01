@@ -9,7 +9,7 @@ public class RiskyExample2 {
     public static Date startOfSpring() {
         if (groundhogAnswer == null)
             groundhogAnswer = askGroundhog();
-        return groundhogAnswer;
+        return new Date(groundhogAnswer.getTime());
     }
 
     /**
@@ -19,18 +19,18 @@ public class RiskyExample2 {
         // let's have a party one month after spring starts!
         Date partyDate = startOfSpring();
         partyDate.setMonth(partyDate.getMonth()+1);
+        System.out.println("Date of party is: " + partyDate);
     }
 
     private static Date groundhogAnswer = null;
 
     public static Date askGroundhog() {
-        Date groundHogPredition = new Date(2018, 03, 20);
+        Date groundHogPredition = new Date(118, 02, 20);
         return groundHogPredition;
-    }
+}
 
     public static void main(String[] args) {
+        System.out.println("Start of spring is: " + startOfSpring());
         partyPlanning();
-        System.out.println(startOfSpring());
-
     }
 }
